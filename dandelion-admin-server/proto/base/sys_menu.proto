@@ -1,0 +1,78 @@
+syntax = "proto3";
+option go_package = "./;base";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/team-dandelion/go-dandelion/tools/rpccall/lib.proto";
+
+package menu_proto;
+
+message MenuTreeNode {
+  uint32 id = 1 [(gogoproto.jsontag) = 'id'];
+  uint32 parent_id = 2 [(gogoproto.jsontag) = 'parent_id'];
+  string name = 3 [(gogoproto.jsontag) = 'name'];
+  string path = 4 [(gogoproto.jsontag) = 'path'];
+  int32 type = 5 [(gogoproto.jsontag) = 'type'];
+  string icon = 6 [(gogoproto.jsontag) = 'icon'];
+  int32 sort = 7 [(gogoproto.jsontag) = 'sort'];
+  int32 status = 8 [(gogoproto.jsontag) = 'status'];
+  repeated MenuTreeNode children = 9 [(gogoproto.jsontag) = 'children'];
+}
+
+message GetMenuTreeReq {
+}
+
+message GetMenuTreeResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+  repeated MenuTreeNode list = 2 [(gogoproto.jsontag) = 'list'];
+}
+
+message CreateMenuReq {
+  uint32 parent_id = 1 [(gogoproto.jsontag) = 'parent_id'];
+  string name = 2 [(gogoproto.jsontag) = 'name'];
+  string path = 3 [(gogoproto.jsontag) = 'path'];
+  int32 type = 4 [(gogoproto.jsontag) = 'type'];
+  string icon = 5 [(gogoproto.jsontag) = 'icon'];
+  int32 sort = 6 [(gogoproto.jsontag) = 'sort'];
+  int32 status = 7 [(gogoproto.jsontag) = 'status'];
+}
+
+message CreateMenuResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+  uint32 id = 2 [(gogoproto.jsontag) = 'id'];
+}
+
+message UpdateMenuReq {
+  uint32 id = 1 [(gogoproto.jsontag) = 'id'];
+  uint32 parent_id = 2 [(gogoproto.jsontag) = 'parent_id'];
+  string name = 3 [(gogoproto.jsontag) = 'name'];
+  string path = 4 [(gogoproto.jsontag) = 'path'];
+  int32 type = 5 [(gogoproto.jsontag) = 'type'];
+  string icon = 6 [(gogoproto.jsontag) = 'icon'];
+  int32 sort = 7 [(gogoproto.jsontag) = 'sort'];
+  int32 status = 8 [(gogoproto.jsontag) = 'status'];
+}
+
+message UpdateMenuResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+message DeleteMenuReq {
+  uint32 id = 1 [(gogoproto.jsontag) = 'id'];
+}
+
+message DeleteMenuResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+message MenuSort {
+  uint32 id = 1 [(gogoproto.jsontag) = 'id'];
+  int32 sequence = 2 [(gogoproto.jsontag) = 'sequence'];
+  uint32 parent_id = 3 [(gogoproto.jsontag) = 'parent_id'];
+}
+
+message SortMenuReq {
+  repeated MenuSort list = 1 [(gogoproto.jsontag) = 'list'];
+}
+
+message SortMenuResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}

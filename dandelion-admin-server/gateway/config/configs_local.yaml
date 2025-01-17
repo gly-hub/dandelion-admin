@@ -1,0 +1,28 @@
+logger:
+  #Level 0 紧急的 1警报 2重要的 3错误 4警告 5提示 6信息 7调试
+  consoleShow: true
+  consoleLevel:  7
+  fileWrite:  false
+  fileLevel:  7
+  multiFileWrite: false
+  multiFileLevel: 7
+
+httpServer:
+  port: 8080
+  pprof: 8088
+
+rpcClient:
+  clientName: "gateway"
+  basePath: "dandelion-admin-server"
+  registerPlugin: "multiple"
+  registerServers:
+    - "127.0.0.1:8899"
+  failRetryModel: 3
+  balanceModel: 2
+  poolSize: 1
+
+tracer:
+  openTrace: true
+  traceName: "gateway"
+  host: "127.0.0.1:6831"
+

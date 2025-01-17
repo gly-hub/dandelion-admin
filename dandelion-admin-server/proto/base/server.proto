@@ -1,0 +1,33 @@
+syntax = "proto3";
+option go_package = "./;base";
+import "authorize.proto";
+import "sys_menu.proto";
+import "sys_user.proto";
+import "sys_role.proto";
+
+service BaseServerService {
+    // 系统接口
+    rpc Login(authorize_proto.LoginParams) returns (authorize_proto.LoginResp);
+    rpc GetUserMenu(authorize_proto.GetUserMenuReq) returns (authorize_proto.GetUserMenuResp);
+    rpc GetUserInfo(authorize_proto.GetUserInfoReq) returns (authorize_proto.GetUserInfoResp);
+
+    // 菜单管理
+    rpc GetMenuTree(menu_proto.GetMenuTreeReq) returns (menu_proto.GetMenuTreeResp);
+    rpc CreateMenu(menu_proto.CreateMenuReq) returns (menu_proto.CreateMenuResp);
+    rpc UpdateMenu(menu_proto.UpdateMenuReq) returns (menu_proto.UpdateMenuResp);
+    rpc DeleteMenu(menu_proto.DeleteMenuReq) returns (menu_proto.DeleteMenuResp);
+    rpc SortMenu(menu_proto.SortMenuReq) returns (menu_proto.SortMenuResp);
+
+    // 用户管理
+    rpc CreateSysUser(sys_user_proto.CreateSysUserReq) returns (sys_user_proto.CreateSysUserResp);
+    rpc UpdateSysUser(sys_user_proto.UpdateSysUserReq) returns (sys_user_proto.UpdateSysUserResp);
+    rpc DeleteSysUser(sys_user_proto.DeleteSysUserReq) returns (sys_user_proto.DeleteSysUserResp);
+    rpc GetSysUserList(sys_user_proto.GetSysUserListReq) returns (sys_user_proto.GetSysUserListResp);
+
+    // 角色管理
+    rpc CreateRole(role_proto.CreateRoleReq) returns (role_proto.CreateRoleResp);
+    rpc UpdateRole(role_proto.UpdateRoleReq) returns (role_proto.UpdateRoleResp);
+    rpc DeleteRole(role_proto.DeleteRoleReq) returns (role_proto.DeleteRoleResp);
+    rpc GetRoleList(role_proto.GetRoleListReq) returns (role_proto.GetRoleListResp);
+    rpc AssignUsers(role_proto.AssignUsersReq) returns (role_proto.AssignUsersResp);
+}

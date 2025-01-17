@@ -1,0 +1,60 @@
+logger:
+  #Level 0 紧急的 1警报 2重要的 3错误 4警告 5提示 6信息 7调试
+  consoleShow: true
+  consoleLevel:  7
+  fileWrite:  false
+  fileLevel:  7
+  multiFileWrite: false
+  multiFileLevel: 7
+
+rpcServer:
+  serverName: "BaseServerService"
+  registerPlugin: "multiple"
+  registerServers:
+    - "127.0.0.1:2379"
+  basePath: "dandelion-admin-server"
+  addr: ""
+  port: 8899
+  pprof: 18899
+
+db:
+  dbType: "mysql"
+  maxOpenConn: 20
+  maxIdleConn: 4
+  maxIdleTime: 100
+  maxLifeTime: 3600
+  level: 4
+  slowThreshold: "100ms"
+  master:
+    user: "root"
+    password: "password"
+    host: "127.0.0.1"
+    port: "3306"
+    database: "dandelion-admin"
+  slave:
+    - user: "root"
+      password: "password"
+      host: "127.0.0.1"
+      port: "3306"
+      database: "dandelion-admin"
+
+redis:
+  redisType: "alone"
+  startAddr: ["127.0.0.1:6379"]
+  active: 100
+  idle: 100
+  auth: ""
+  connTimeout: "100ms"
+  readTimeout: "100ms"
+  writeTimeout: "100ms"
+  idleTimeout: "100ms"
+
+tracer:
+  openTrace: true
+  traceName: "base-server"
+  host: "127.0.0.1:6831"
+
+jwt:
+  model: "unique"
+  key: "go-bookstore-fangaoo"
+  expireTime: 60*60*24

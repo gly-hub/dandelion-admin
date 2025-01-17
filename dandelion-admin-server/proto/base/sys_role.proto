@@ -1,0 +1,77 @@
+syntax = "proto3";
+option go_package = "./;base";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/team-dandelion/go-dandelion/tools/rpccall/lib.proto";
+
+package role_proto;
+
+// 角色信息
+message RoleInfo {
+    int32 id = 1 [(gogoproto.jsontag) = 'id'];
+    string name = 2 [(gogoproto.jsontag) = 'name'];
+    string description = 3 [(gogoproto.jsontag) = 'description'];
+    int32 status = 4 [(gogoproto.jsontag) = 'status'];
+    int64 created_at = 5 [(gogoproto.jsontag) = 'created_at'];
+    int64 updated_at = 6 [(gogoproto.jsontag) = 'updated_at'];
+    repeated int32 menu_ids = 7 [(gogoproto.jsontag) = 'menu_ids'];
+    repeated int32 user_ids = 8 [(gogoproto.jsontag) = 'user_ids'];
+}
+
+// 创建角色请求
+message CreateRoleReq {
+    string name = 1 [(gogoproto.jsontag) = 'name'];
+    string description = 2 [(gogoproto.jsontag) = 'description'];
+    int32 status = 3 [(gogoproto.jsontag) = 'status'];
+    repeated int32 menu_ids = 4 [(gogoproto.jsontag) = 'menu_ids'];
+}
+
+message CreateRoleResp {
+    rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+    int32 id = 2 [(gogoproto.jsontag) = 'id'];
+}
+
+// 更新角色请求
+message UpdateRoleReq {
+    int32 id = 1 [(gogoproto.jsontag) = 'id'];
+    string name = 2 [(gogoproto.jsontag) = 'name'];
+    string description = 3 [(gogoproto.jsontag) = 'description'];
+    int32 status = 4 [(gogoproto.jsontag) = 'status'];
+    repeated int32 menu_ids = 5 [(gogoproto.jsontag) = 'menu_ids'];
+}
+
+message UpdateRoleResp {
+    rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+// 删除角色请求
+message DeleteRoleReq {
+    int32 id = 1 [(gogoproto.jsontag) = 'id'];
+}
+
+message DeleteRoleResp {
+    rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+// 角色列表请求
+message GetRoleListReq {
+    string name = 1 [(gogoproto.jsontag) = 'name'];
+    int32 status = 2 [(gogoproto.jsontag) = 'status'];
+    int32 page = 3 [(gogoproto.jsontag) = 'page'];
+    int32 page_size = 4 [(gogoproto.jsontag) = 'page_size'];
+}
+
+message GetRoleListResp {
+    rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+    repeated RoleInfo list = 2 [(gogoproto.jsontag) = 'list'];
+    int64 total = 3 [(gogoproto.jsontag) = 'total'];
+}
+
+// 分配用户请求
+message AssignUsersReq {
+    int32 role_id = 1 [(gogoproto.jsontag) = 'role_id'];
+    repeated int32 user_ids = 2 [(gogoproto.jsontag) = 'user_ids'];
+}
+
+message AssignUsersResp {
+    rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+} 

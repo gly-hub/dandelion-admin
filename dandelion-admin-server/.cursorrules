@@ -1,0 +1,61 @@
+## 业务编写涉及文件
+强调：业务开发前需要对已有的功能编写流程以及规范进行了解。
+
+我来解释下登录业务代码涉及的文件结构，你需要结合一下解释并对代码进行理解：
+1.proto 定义层 (proto/base/):
+ + authorize.proto: 定义登录接口的请求参数和响应结构
+ + server.proto: 定义 RPC 服务接口
+2. 网关层 (gateway/):
+ + internal/route/base_server.go: 注册 HTTP 路由
+ + internal/service/base-server/authorize_controller.go: HTTP 控制器，处理请求并转发到 RPC 服务
+3. 业务服务层 (base-server/):
+ + internal/service/authorize.go: RPC 服务实现
+ + internal/logic/authorize.go: 具体业务逻辑实现
+ + internal/model/sys_user.go: 数据模型定义
+ + internal/dao/: 数据访问层（从搜索结果看应该有 sys_user.go）
+编写新业务时的流程：
+1. 在 proto/base/ 中定义服务接口和数据结构
+2. 在 base-server/internal/model/ 中定义数据模型
+3. 在 base-server/internal/dao/ 中实现数据访问方法
+4. 在 base-server/internal/logic/ 中实现具体业务逻辑
+5. 在 base-server/internal/service/ 中实现 RPC 服务接口
+6. 在 gateway/internal/route/ 中注册 HTTP 路由
+7. 在 gateway/internal/service/base-server/ 中实现 HTTP 控制器
+
+## 编写业务流程
+1.proto编写
+ + 需要先进行proto定义，proto的规范需要遵循 authorize.proto 的规
+   范，每次生成前都应该先对 authorize.proto 中的定义进行梳理
+ + 每个message中的字段都需要设置 gogoproto.jsontag
+ + proto文件按照功能分离
+ + 所有的service方法定义都应该在server.proto中, 具体参照已有的菜单管理规范
+ + proto编写完需要再proto目录下执行 ./gen.sh 生成pb.go文件
+
+2.业务开发
+ + 在base-server/internal/model/中定义数据模型，数据模型需要遵循已有的菜单管理规范
+ + 在base-server/internal/dao/中实现数据访问方法，dao层中业务需要根据实际情况选择继承application.DB或application.Redis
+ + 在base-server/internal/logic/中实现具体业务逻辑，具体业务逻辑需要遵循已有的菜单管理规范
+ + 错误响应需要再base-server/internal/enum/response.go中定义并且使用Error初始化，如果有其他的常量需要定义，你可以在consts.go中定义
+ + 通用的拓展组件需要再base-server/tools/中实现
+ + 在base-server/internal/service/中实现RPC服务接口，需要严格参照已有的功能规范开发，方法名以及参数需要和server.proto中的定义一致
+ + 在gateway/internal/route/中注册HTTP路由，HTTP路由需要遵循已有的菜单管理规范
+ + 在gateway/internal/service/base-server/中实现HTTP控制器，HTTP控制器需要遵循已有的菜单管理规范。
+   注意需要根据已有的swagger注释规范进行注释,路由地址默认带有/api前缀
+
+swagger注释规范：
+```
+// GetSysUserList
+// @tags 系统用户管理
+// @summary 获取用户列表
+// @description 获取系统用户列表
+// @router /api/sys_user/search [get]
+// @param req body base.GetSysUserListReq true "json入参"
+// @success 200 {object} base.GetSysUserListResp "返回值"
+```
+ 
+3.注意
+ + 所有开发中需要遵循已有的功能规范
+ + 如果没有则先进行询问，不要自作主张
+ + 开发需要先进行功能梳理以及代码评审，评审通过后再进行开发
+ + 如果某个查询列表存在查询条件，接口最好post而不是get
+

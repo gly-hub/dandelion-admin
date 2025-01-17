@@ -1,0 +1,65 @@
+.icon-select-container {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 8px;
+  width: 320px;
+}
+
+.icon-radio-group {
+  width: 100%;
+}
+
+.icon-radio-button {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px !important;
+  margin: 0 !important;
+  border: 1px solid #d9d9d9 !important;
+}
+
+.icon-radio-button:hover {
+  color: #1890ff;
+  border-color: #1890ff !important;
+}
+
+.icon-radio-button:first-child,
+.icon-radio-button:last-child {
+  border-radius: 4px !important;
+}
+
+.icon-radio-button.ant-radio-button-wrapper-checked {
+  background-color: #e6f4ff !important;
+  border-color: #1890ff !important;
+  color: #1890ff !important;
+}
+
+.icon-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-select-trigger .anticon {
+  font-size: 16px;
+}
+
+/* 自定义滚动条样式 */
+.icon-select-container::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.icon-select-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.icon-select-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+} 

@@ -1,0 +1,103 @@
+.menu-layout {
+  height: 100%;
+  background: #fff;
+}
+
+.menu-sider {
+  border-right: 1px solid #f0f0f0;
+  background: #fff;
+}
+
+.menu-sider-header {
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-tree {
+  padding: 16px;
+}
+
+.menu-content {
+  padding: 24px;
+}
+
+.menu-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.menu-detail-item {
+  display: flex;
+  align-items: center;
+}
+
+.menu-detail-item label {
+  width: 120px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.menu-detail-item span {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* 树节点样式 */
+.ant-tree-node-content-wrapper {
+  display: flex;
+  align-items: center;
+  height: 32px;
+}
+
+.ant-tree-node-content-wrapper .ant-space {
+  gap: 8px;
+}
+
+/* 卡片样式 */
+.ant-card-head {
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 48px;
+}
+
+.ant-card-head-title {
+  padding: 12px 0;
+}
+
+.ant-card-extra {
+  padding: 8px 0;
+}
+
+.menu-type-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.menu-type-dir {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border: 1px solid #91d5ff;
+}
+
+.menu-type-menu {
+  background-color: #f6ffed;
+  color: #52c41a;
+  border: 1px solid #b7eb8f;
+}
+
+.menu-type-tab {
+  background-color: #f9f0ff;
+  color: #722ed1;
+  border: 1px solid #d3adf7;
+}
+
+.menu-type-button {
+  background-color: #fff7e6;
+  color: #fa8c16;
+  border: 1px solid #ffd591;
+} 

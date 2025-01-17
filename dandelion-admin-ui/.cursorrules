@@ -1,0 +1,112 @@
+# 项目开发规范
+
+## 目录结构规范 
+src/
+├── api/ # API 接口定义
+│ ├── types.ts # 类型定义
+│ └── [module].ts # 模块接口
+├── pages/ # 页面组件
+│ └── [module]/ # 模块页面
+├── components/ # 公共组件
+├── hooks/ # 自定义 hooks
+├── store/ # 状态管理
+├── types/ # 全局类型
+└── utils/ # 工具函数
+
+
+
+## 开发流程约定
+
+1. 前置准备
+- 整理功能点和需求
+- 设计数据结构和接口
+- 确认是否可复用现有组件
+- 评估对现有功能的影响
+
+2. 接口开发
+- 在 api/types.ts 中定义接口类型
+- 在 api/[module].ts 中实现接口
+- 必须使用 utils/request.ts 发起请求
+- 遵循统一的 ApiResponse 格式
+
+3. 页面开发
+- 页面组件放在 pages/[module] 目录
+- 页面私有组件放在对应页面目录下
+- 公共组件放在 components 目录
+- CSS Module 文件命名为 index.module.css
+
+4. 状态管理
+- 模块状态放在 store/[module].ts
+- 全局状态放在 store/index.ts
+- 必须定义 action 类型
+
+## 代码规范
+
+1. TypeScript
+- 严格定义类型，禁止使用 any
+- 接口类型统一在 types.ts 中定义
+- 组件 props 必须定义接口
+
+2. 请求处理
+- 统一使用 utils/request.ts
+- 处理所有异常情况
+- 遵循 RESTful 规范
+
+3. 组件开发
+- 函数组件 + Hooks
+- 私有函数以 handle 开头
+- props 解构赋值
+- 必要时添加注释
+
+4. 样式规范
+- 使用 CSS Module
+- BEM 命名规范
+- 避免内联样式
+
+## 禁止事项
+
+1. 不允许直接修改现有功能
+2. 不允许直接使用 fetch/axios
+3. 避免重复造轮子
+4. 禁止在组件中直接操作 DOM
+5. 禁止使用 class 组件
+
+## 开发步骤示例
+
+1. 新功能开发流程
+
+```typescript
+// 1. 定义类型 (api/types.ts)
+interface NewFeatureParams {
+// ...
+}
+// 2. 实现接口 (api/newFeature.ts)
+import request from '@/utils/request';
+export const newFeatureApi = async (params: NewFeatureParams) => {
+return request.post('/api/new-feature', params);
+};
+// 3. 开发页面 (pages/newFeature/index.tsx)
+import styles from './index.module.css';
+const NewFeature: React.FC = () => {
+// ...
+};
+```
+
+
+2. 功能优化流程
+- 记录优化点
+- 评估影响范围
+- 编写测试用例
+- 实现优化
+- 验证功能
+
+## Git 提交规范
+
+commit 格式：
+- feat: 新功能
+- fix: 修复
+- docs: 文档
+- style: 格式
+- refactor: 重构
+- test: 测试
+- chore: 其他

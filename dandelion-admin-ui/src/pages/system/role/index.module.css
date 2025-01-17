@@ -1,0 +1,13 @@
+.container {
+  padding: 24px;
+}
+
+.searchBar {
+  margin-bottom: 16px;
+}
+
+.header {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: flex-end;
+} 

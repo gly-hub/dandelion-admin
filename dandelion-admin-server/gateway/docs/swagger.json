@@ -1,0 +1,979 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Your API Description",
+        "title": "Your API Title",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/api",
+    "paths": {
+        "/api/login": {
+            "post": {
+                "description": "用户登录接口",
+                "tags": [
+                    "系统认证"
+                ],
+                "summary": "用户登录",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.LoginParams"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.LoginResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_menu/create": {
+            "post": {
+                "description": "创建系统菜单",
+                "tags": [
+                    "系统菜单管理"
+                ],
+                "summary": "创建菜单",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.CreateMenuReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.CreateMenuResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_menu/delete": {
+            "delete": {
+                "description": "删除系统菜单",
+                "tags": [
+                    "系统菜单管理"
+                ],
+                "summary": "删除菜单",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.DeleteMenuReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.DeleteMenuResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_menu/search": {
+            "get": {
+                "description": "获取系统菜单树形结构",
+                "tags": [
+                    "系统菜单管理"
+                ],
+                "summary": "获取菜单树",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.GetMenuTreeReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetMenuTreeResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_menu/sort": {
+            "put": {
+                "description": "对系统菜单进行排序",
+                "tags": [
+                    "系统菜单管理"
+                ],
+                "summary": "菜单排序",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.SortMenuReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.SortMenuResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_menu/update": {
+            "put": {
+                "description": "更新系统菜单",
+                "tags": [
+                    "系统菜单管理"
+                ],
+                "summary": "更新菜单",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.UpdateMenuReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.UpdateMenuResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_role": {
+            "put": {
+                "description": "更新系统角色",
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "更新角色",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.UpdateRoleReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.UpdateRoleResp"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "创建系统角色",
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "创建角色",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.CreateRoleReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.CreateRoleResp"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "删除系统角色",
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "删除角色",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.DeleteRoleReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.DeleteRoleResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_role/assign_users": {
+            "post": {
+                "description": "为角色分配用户",
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "分配用户",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.AssignUsersReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.AssignUsersResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_role/search": {
+            "post": {
+                "description": "获取系统角色列表",
+                "tags": [
+                    "角色管理"
+                ],
+                "summary": "获取角色列表",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.GetRoleListReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetRoleListResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_user/create": {
+            "post": {
+                "description": "创建系统用户",
+                "tags": [
+                    "系统用户管理"
+                ],
+                "summary": "创建用户",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.CreateSysUserReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.CreateSysUserResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_user/delete": {
+            "delete": {
+                "description": "删除系统用户",
+                "tags": [
+                    "系统用户管理"
+                ],
+                "summary": "删除用户",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.DeleteSysUserReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.DeleteSysUserResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_user/search": {
+            "post": {
+                "description": "获取系统用户列表",
+                "tags": [
+                    "系统用户管理"
+                ],
+                "summary": "获取用户列表",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.GetSysUserListReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetSysUserListResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/sys_user/update": {
+            "put": {
+                "description": "更新系统用户",
+                "tags": [
+                    "系统用户管理"
+                ],
+                "summary": "更新用户",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.UpdateSysUserReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.UpdateSysUserResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/info": {
+            "get": {
+                "description": "获取当前登录用户的信息",
+                "tags": [
+                    "系统认证"
+                ],
+                "summary": "获取用户信息",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.GetUserInfoReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetUserInfoResp"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/menu": {
+            "get": {
+                "description": "获取当前登录用户的菜单列表",
+                "tags": [
+                    "系统认证"
+                ],
+                "summary": "获取用户菜单",
+                "parameters": [
+                    {
+                        "description": "json入参",
+                        "name": "req",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/base.GetUserMenuReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "返回值",
+                        "schema": {
+                            "$ref": "#/definitions/base.GetUserMenuResp"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "base.AssignUsersReq": {
+            "type": "object",
+            "properties": {
+                "role_id": {
+                    "type": "integer"
+                },
+                "user_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "base.AssignUsersResp": {
+            "type": "object"
+        },
+        "base.CreateMenuReq": {
+            "type": "object",
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.CreateMenuResp": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.CreateRoleReq": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "menu_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.CreateRoleResp": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.CreateSysUserReq": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "nick_name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.CreateSysUserResp": {
+            "type": "object"
+        },
+        "base.DeleteMenuReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.DeleteMenuResp": {
+            "type": "object"
+        },
+        "base.DeleteRoleReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.DeleteRoleResp": {
+            "type": "object"
+        },
+        "base.DeleteSysUserReq": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.DeleteSysUserResp": {
+            "type": "object"
+        },
+        "base.GetMenuTreeReq": {
+            "type": "object"
+        },
+        "base.GetMenuTreeResp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.MenuTreeNode"
+                    }
+                }
+            }
+        },
+        "base.GetRoleListReq": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "page_size": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.GetRoleListResp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.RoleInfo"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.GetSysUserListReq": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "type": "integer"
+                },
+                "page_size": {
+                    "type": "integer"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.GetSysUserListResp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.SysUserInfo"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.GetUserInfoReq": {
+            "type": "object"
+        },
+        "base.GetUserInfoResp": {
+            "type": "object",
+            "properties": {
+                "user_info": {
+                    "$ref": "#/definitions/base.UserInfo"
+                }
+            }
+        },
+        "base.GetUserMenuReq": {
+            "type": "object"
+        },
+        "base.GetUserMenuResp": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.MenuTreeNode"
+                    }
+                }
+            }
+        },
+        "base.LoginParams": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.LoginResp": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.MenuSort": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "sequence": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.MenuTreeNode": {
+            "type": "object",
+            "properties": {
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.MenuTreeNode"
+                    }
+                },
+                "icon": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.RoleInfo": {
+            "type": "object",
+            "properties": {
+                "created_at": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "menu_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "user_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "base.SortMenuReq": {
+            "type": "object",
+            "properties": {
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/base.MenuSort"
+                    }
+                }
+            }
+        },
+        "base.SortMenuResp": {
+            "type": "object"
+        },
+        "base.SysUserInfo": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "nick_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "base.UpdateMenuReq": {
+            "type": "object",
+            "properties": {
+                "icon": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "parent_id": {
+                    "type": "integer"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "sort": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "type": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.UpdateMenuResp": {
+            "type": "object"
+        },
+        "base.UpdateRoleReq": {
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "menu_ids": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "name": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.UpdateRoleResp": {
+            "type": "object"
+        },
+        "base.UpdateSysUserReq": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "nick_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                }
+            }
+        },
+        "base.UpdateSysUserResp": {
+            "type": "object"
+        },
+        "base.UserInfo": {
+            "type": "object",
+            "properties": {
+                "avatar": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "nick_name": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "user_name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

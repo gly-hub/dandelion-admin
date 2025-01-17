@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+option go_package = "./;base";
+import "github.com/gogo/protobuf/gogoproto/gogo.proto";
+import "github.com/team-dandelion/go-dandelion/tools/rpccall/lib.proto";
+
+package sys_user_proto;
+
+// 创建用户
+message CreateSysUserReq {
+  string user_name = 1 [(gogoproto.jsontag) = 'user_name'];
+  string password = 2 [(gogoproto.jsontag) = 'password'];
+  string nick_name = 3 [(gogoproto.jsontag) = 'nick_name'];
+  string avatar = 4 [(gogoproto.jsontag) = 'avatar'];
+  string phone = 5 [(gogoproto.jsontag) = 'phone'];
+  int32 status = 6 [(gogoproto.jsontag) = 'status'];
+}
+
+message CreateSysUserResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+// 更新用户
+message UpdateSysUserReq {
+  int32 id = 1 [(gogoproto.jsontag) = 'id'];
+  string nick_name = 2 [(gogoproto.jsontag) = 'nick_name'];
+  string avatar = 3 [(gogoproto.jsontag) = 'avatar'];
+  string phone = 4 [(gogoproto.jsontag) = 'phone'];
+  int32 status = 5 [(gogoproto.jsontag) = 'status'];
+}
+
+message UpdateSysUserResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+// 删除用户
+message DeleteSysUserReq {
+  int32 id = 1 [(gogoproto.jsontag) = 'id'];
+}
+
+message DeleteSysUserResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+}
+
+// 用户列表
+message GetSysUserListReq {
+  string user_name = 1 [(gogoproto.jsontag) = 'user_name'];
+  string phone = 2 [(gogoproto.jsontag) = 'phone'];
+  int32 status = 3 [(gogoproto.jsontag) = 'status'];
+  int32 page = 4 [(gogoproto.jsontag) = 'page'];
+  int32 page_size = 5 [(gogoproto.jsontag) = 'page_size'];
+}
+
+message GetSysUserListResp {
+  rpccall.CommonResp common_resp = 1 [(gogoproto.jsontag) = '-'];
+  repeated SysUserInfo list = 2 [(gogoproto.jsontag) = 'list'];
+  int64 total = 3 [(gogoproto.jsontag) = 'total'];
+}
+
+message SysUserInfo {
+  int32 id = 1 [(gogoproto.jsontag) = 'id'];
+  string user_name = 2 [(gogoproto.jsontag) = 'user_name'];
+  string nick_name = 3 [(gogoproto.jsontag) = 'nick_name'];
+  string avatar = 4 [(gogoproto.jsontag) = 'avatar'];
+  string phone = 5 [(gogoproto.jsontag) = 'phone'];
+  int32 status = 6 [(gogoproto.jsontag) = 'status'];
+  int64 created_at = 7 [(gogoproto.jsontag) = 'created_at'];
+  int64 updated_at = 8 [(gogoproto.jsontag) = 'updated_at'];
+} 

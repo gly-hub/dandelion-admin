@@ -1,0 +1,124 @@
+.userTransfer {
+  :global {
+    /* 调整搜索框样式 */
+    .ant-transfer-list-search {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .ant-transfer-list-search-action {
+      right: 16px;
+      top: 14px;
+      color: rgba(0, 0, 0, 0.25);
+    }
+    .ant-input-affix-wrapper {
+      padding: 4px 8px;
+    }
+    .ant-input-prefix {
+      color: rgba(0, 0, 0, 0.25);
+      margin-right: 4px;
+    }
+
+    /* 调整标题样式 */
+    .ant-transfer-list-header {
+      padding: 12px;
+      background: #fafafa;
+    }
+    .ant-transfer-list-header-title {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.88);
+      font-weight: 500;
+    }
+    .ant-transfer-list-header-selected {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 12px;
+    }
+
+    /* 调整列表样式 */
+    .ant-transfer-list {
+      border-radius: 8px;
+      border-color: #e5e6eb;
+      width: 280px !important;
+    }
+    .ant-transfer-list-content {
+      padding: 0;
+    }
+    .ant-transfer-list-content-item {
+      padding: 8px 12px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      border-bottom: 1px solid #f0f0f0;
+      border-radius: 0;
+      transition: all 0.3s;
+    }
+    .ant-transfer-list-content-item:last-child {
+      border-bottom: none;
+    }
+    .ant-transfer-list-content-item:hover {
+      background-color: #f5f5f5;
+    }
+    .ant-transfer-list-content-item-checked {
+      background-color: #e6f4ff;
+    }
+    .ant-transfer-list-content-item-text {
+      flex: 1;
+      margin-left: 8px;
+      color: rgba(0, 0, 0, 0.88);
+    }
+
+    /* 调整分页样式 */
+    .ant-transfer-list-pagination {
+      margin: 0;
+      padding: 8px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .ant-pagination-simple .ant-pagination-simple-pager {
+      margin: 0 4px;
+    }
+
+    /* 调整操作按钮样式 */
+    .ant-transfer-operation {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 0;
+      padding: 8px;
+      width: 32px;
+    }
+    .ant-transfer-operation .ant-btn {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      padding: 0;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: rgba(0, 0, 0, 0.45);
+      transition: all 0.3s;
+      margin: 0;
+    }
+    .ant-transfer-operation .ant-btn:hover {
+      color: #1677ff;
+      border-color: #1677ff;
+      background: #fff;
+    }
+    .ant-transfer-operation .ant-btn:active {
+      color: #0958d9;
+      border-color: #0958d9;
+      background: #fff;
+    }
+    .ant-transfer-operation .ant-btn[disabled] {
+      background: #f5f5f5;
+      border-color: #d9d9d9;
+      color: rgba(0, 0, 0, 0.25);
+      cursor: not-allowed;
+    }
+    .ant-transfer-operation .anticon {
+      font-size: 12px;
+    }
+  }
+} 

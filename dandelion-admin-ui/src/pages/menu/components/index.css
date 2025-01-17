@@ -1,0 +1,58 @@
+.ant-form-item {
+  margin-bottom: 16px;
+}
+
+.ant-modal-body {
+  padding: 24px 24px 8px;
+}
+
+.ant-form-item-label {
+  padding-bottom: 4px;
+}
+
+/* 调整图标选择器的样式 */
+.ant-form-item .icon-select-trigger {
+  height: 32px;
+}
+
+/* 权限配置样式 */
+.permissions-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.permission-card {
+  background-color: #fafafa;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #f0f0f0;
+}
+
+.permission-card:hover {
+  border-color: #1890ff;
+}
+
+.permission-card .ant-form-item {
+  margin-bottom: 8px;
+}
+
+.dynamic-delete-button {
+  color: #ff4d4f;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.dynamic-delete-button:hover {
+  color: #ff7875;
+}
+
+/* 分割线样式 */
+.ant-divider-with-text-left {
+  margin: 16px 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 500;
+  font-size: 14px;
+} 
